@@ -129,7 +129,7 @@ export default function CalendarForm({ event, range, onCancel }) {
 
         <Controller
           name="start"
-          a={control}
+          control={control}
           render={({ field }) => (
             <MobileDateTimePicker
               {...field}
