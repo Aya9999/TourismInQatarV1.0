@@ -53,6 +53,22 @@ export default function Router() {
         { path: '*', element: <Navigate to="/404" replace /> },
       ],
     },
+    {
+      path: '/',
+      element: <MainLayout />,
+      children: [
+        { element: <HomePage />, index: true },
+        { path: 'about-us', element: <About /> },
+        { path: 'contact-us', element: <Contact /> },
+        { path: 'faqs', element: <Faqs /> },
+        { path: 'details/pearl', element: <PearlPage /> },
+        { path: 'details/souq', element: <SouqPage /> },
+        { path: 'details/musherib', element: <MusheribPage /> },
+        { path: 'details/lusail', element: <LusailPage /> },
+        { path: 'details/katara', element: <KataraPage /> },
+        { path: 'details/corniche', element: <CornichePage /> },
+      ],
+    },
     { path: '*', element: <Navigate to="/404" replace /> },
   ]);
 }
@@ -66,3 +82,11 @@ const PageFour = Loadable(lazy(() => import('../pages/PageFour')));
 const PageFive = Loadable(lazy(() => import('../pages/PageFive')));
 const PageSix = Loadable(lazy(() => import('../pages/PageSix')));
 const NotFound = Loadable(lazy(() => import('../pages/Page404')));
+
+// DETAILS
+const PearlPage =  Loadable(lazy(() => import('../pages/details/Pearl')));
+const SouqPage =  Loadable(lazy(() => import('../pages/details/Souq_Waqif')));
+const MusheribPage =  Loadable(lazy(() => import('../pages/details/Musherib')));
+const LusailPage =  Loadable(lazy(() => import('../pages/details/Lusail')));
+const KataraPage =  Loadable(lazy(() => import('../pages/details/Katara')));
+const CornichePage =  Loadable(lazy(() => import('../pages/details/Corniche')));
