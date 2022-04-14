@@ -13,7 +13,7 @@ import { PageNotFoundIllustration } from '../assets';
 
 const RootStyle = styled('div')(({ theme }) => ({
   display: 'flex',
-  height: '100%',
+  minHeight: '100%',
   alignItems: 'center',
   paddingTop: theme.spacing(15),
   paddingBottom: theme.spacing(10),

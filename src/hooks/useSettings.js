@@ -3,6 +3,7 @@ import { SettingsContext } from '../contexts/SettingsContext';
 
 // ----------------------------------------------------------------------
 
-const useSettings = () => useContext(SettingsContext);
-
-export default useSettings;
+export default function useSettings() {
+    const useSettings = () => useContext(SettingsContext);
+    return useSettings
+};
