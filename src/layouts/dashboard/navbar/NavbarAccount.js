@@ -1,7 +1,14 @@
 import PropTypes from 'prop-types';
+import { Link as RouterLink } from 'react-router-dom';
 // @mui
 import { styled } from '@mui/material/styles';
-import { Box, Link, Typography, Avatar } from '@mui/material';
+import { Box, Link, Typography } from '@mui/material';
+// hooks
+import useAuth from '../../../hooks/useAuth';
+// routes
+import { PATH_DASHBOARD } from '../../../routes/paths';
+// components
+import MyAvatar from '../../../components/MyAvatar';
 
 // ----------------------------------------------------------------------
 
@@ -23,8 +30,10 @@ NavbarAccount.propTypes = {
 };
 
 export default function NavbarAccount({ isCollapse }) {
+  const { user } = useAuth();
+
   return (
-    <Link underline="none" color="inherit">
+    <Link underline="none" color="inherit" component={RouterLink} to={PATH_DASHBOARD.user.account}>
       <RootStyle
         sx={{
           ...(isCollapse && {
@@ -32,7 +41,7 @@ export default function NavbarAccount({ isCollapse }) {
           }),
         }}
       >
-        <Avatar src="https://minimal-assets-api.vercel.app/assets/images/avatars/avatar_5.jpg" alt="Rayan Moran" />
+        <MyAvatar />
 
         <Box
           sx={{
@@ -48,10 +57,10 @@ export default function NavbarAccount({ isCollapse }) {
           }}
         >
           <Typography variant="subtitle2" noWrap>
-            Rayan Moran
+            {user?.displayName}
           </Typography>
           <Typography variant="body2" noWrap sx={{ color: 'text.secondary' }}>
-            user
+            {user?.role}
           </Typography>
         </Box>
       </RootStyle>

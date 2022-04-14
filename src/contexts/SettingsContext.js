@@ -53,10 +53,10 @@ function SettingsProvider({ children }) {
     });
   };
 
-  const onChangeDirection = (event) => {
+  const onChangeDirection = (dir) => {
     setSettings({
       ...settings,
-      themeDirection: event.target.value,
+      themeDirection: dir,
     });
   };
 
