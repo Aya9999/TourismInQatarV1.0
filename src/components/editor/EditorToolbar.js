@@ -3,7 +3,7 @@ import { Quill } from 'react-quill';
 // components
 import Iconify from '../Iconify';
 //
-import EditorToolbarStyle from './EditorToolbarStyle';
+import EditorToolbarStyle from './EditorToolbarStyle.js';
 
 // ----------------------------------------------------------------------
 
