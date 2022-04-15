@@ -1,6 +1,7 @@
 import { handleSubmitEvent, reformatDate, handleGetAll } from "../pages/CalendarFunctions";
 import "babel-polyfill"; 
 import 'regenerator-runtime/runtime'
+
 describe("Submit Testing", () => {
     test("submit",async () => {
         const events = await handleGetAll()

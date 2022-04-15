@@ -10,7 +10,7 @@ import useCollapseDrawer from '../../hooks/useCollapseDrawer';
 // config
 import { HEADER, NAVBAR } from '../../config';
 //
-import DashboardHeader from './header';
+// import DashboardHeader from './header';
 import NavbarVertical from './navbar/NavbarVertical';
 import NavbarHorizontal from './navbar/NavbarHorizontal';
 
@@ -53,7 +53,7 @@ export default function DashboardLayout() {
   if (verticalLayout) {
     return (
       <>
-        <DashboardHeader onOpenSidebar={() => setOpen(true)} verticalLayout={verticalLayout} />
+        {/* <DashboardHeader onOpenSidebar={() => setOpen(true)} verticalLayout={verticalLayout} /> */}
 
         {isDesktop ? (
           <NavbarHorizontal />
@@ -88,7 +88,7 @@ export default function DashboardLayout() {
         minHeight: { lg: 1 },
       }}
     >
-      <DashboardHeader isCollapse={isCollapse} onOpenSidebar={() => setOpen(true)} />
+      {/* <DashboardHeader isCollapse={isCollapse} onOpenSidebar={() => setOpen(true)} /> */}
 
       <NavbarVertical isOpenSidebar={open} onCloseSidebar={() => setOpen(false)} />
 

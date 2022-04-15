@@ -22,7 +22,6 @@ export default function App() {
       <ThemeColorPresets>
         <ThemeLocalization>
           <RtlLayout>
-            <NotistackProvider>
               <MotionLazyContainer>
                 <ProgressBarStyle />
                 <ChartStyle />
@@ -31,7 +30,6 @@ export default function App() {
                 <ScrollToTop />
                 <Router />
               </MotionLazyContainer>
-            </NotistackProvider>
           </RtlLayout>
         </ThemeLocalization>
       </ThemeColorPresets>

@@ -6,7 +6,7 @@ import { alpha, styled } from '@mui/material/styles';
 import { Box, Tab, Card, CardContent, Grid, Divider, Container, Typography, Button } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 // redux
-import { useDispatch, useSelector } from '../../redux/store';
+import {  useSelector } from '../../redux/store';
 import { getProduct, addCart, onGotoStep } from '../../redux/slices/product';
 // routes
 import { PATH_DASHBOARD } from '../../routes/paths';
@@ -63,7 +63,6 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
 
 export default function KataraDetails() {
   const { themeStretch } = useSettings();
-  const dispatch = useDispatch();
   const [value, setValue] = useState('1');
   const { name = '' } = useParams();
   const place = { id: 4, placeName: "Katara", desc: "Keeping pace with the emerging global culture that emphasises the importance of diversity in human development, Katara Cultural Village is the largest and the most multidimensional cultural project of Qatar. It is a place where people come together to experience the cultures of the world. With beautiful theatres, concert halls, exhibition galleries and cutting-edge facilities, Katara aims to become a world leader for multi-cultural activities. In line with the goals set forward by the Qatar National Vision 2030, Katara serves as a guardian to the heritage and traditions of Qatar and endeavours to spread awareness about the importance of every culture and civilization and as such, Katara hosts international, regional and local festivals, workshops, performances and exhibitions.", img: ['https://www.timeoutdoha.com/cloud/timeoutdoha/2021/08/17/yBDOnCa5-Katara-Cultural-Village-doha2-1200x800.jpg', 'http://cdn.cnn.com/cnnnext/dam/assets/171213153858-katara-by-dimitrissideridisphotography-0036-3047.jpg', 'https://www.regencyholidays.com/blog/content/images/size/w600/2021/07/Katara-Cultural-Village.jpg', 'https://i.pinimg.com/originals/3b/74/ae/3b74ae7942524f69999b31a2bd4430b6.jpg'] }

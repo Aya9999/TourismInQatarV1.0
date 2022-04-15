@@ -91,17 +91,18 @@ export default function HomePage({ index }) {
     <Page title="Home Page">
 
       <Container maxWidth='lg'> 
-        <TextField lable="Search" value={search} onChange={val=>setSearch(val.target.value)}/>
-        <Button id="searchNow"onClick={handleSearchLocally}>search</Button>
-        <Button id="changeColor" onClick={changeCardColorLocally}>change color</Button>
-        <Button id="shuffle" onClick={shuffleLocally}>shuffle cards</Button>
-        <Button onClick={() => setViewMap(!viewMap)}>View Map</Button>
-
 
         <Grid container spacing={3}>
-          <Grid key="map" item hidden={!viewMap} xs={12}>
-            <QMap setPopupInfo={setPopupInfo} popupInfo={popupInfo} />
-          </Grid>
+        <Grid container >
+
+<TextField lable="Search" value={search}  onChange={val=>setSearch(val.target.value)}/>
+
+<Button id="searchNow"onClick={handleSearchLocally}>search</Button>
+<Button id="changeColor" onClick={changeCardColorLocally}>change color</Button>
+<Button id="shuffle" onClick={shuffleLocally}>shuffle cards</Button>
+<Button onClick={() => setViewMap(!viewMap)}>View Map</Button>
+
+</Grid>
           {places.map((place, index) => (
             <Grid key={place.id} item xs={12} sm={6} md={4}>
               <Card
@@ -155,7 +156,11 @@ export default function HomePage({ index }) {
               </Card>
             </Grid>
           ))}
+             <Grid key="map" item hidden={!viewMap} xs={12}>
+            <QMap setPopupInfo={setPopupInfo} popupInfo={popupInfo} />
+          </Grid> 
         </Grid>
+            
       </Container>
     </Page>
   );

@@ -8,7 +8,7 @@ import { alpha, styled } from '@mui/material/styles';
 import { Box, Tab, Card, CardContent, Grid, Divider, Container, Typography, Button } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 // redux
-import { useDispatch, useSelector } from '../../redux/store';
+import { useSelector } from '../../redux/store';
 import { getProduct, addCart, onGotoStep } from '../../redux/slices/product';
 // routes
 import { PATH_DASHBOARD } from '../../routes/paths';
@@ -65,7 +65,6 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
 
 export default function PearlDetails() {
   const { themeStretch } = useSettings();
-  const dispatch = useDispatch();
   const [value, setValue] = useState('1');
   const { name = '' } = useParams();
   const place = { id: 2, placeName: "Musherib", desc: "It is the world’s first sustainable downtown regeneration project and one of the smartest cities on earth, strategically located in the heart of Doha – the ambitious and thriving capital city of Qatar – only minutes away from the Hamad International Airport. Msheireb Downtown Doha, inspires a modern and digital community, featuring smart living and working environments, and is nothing short of a wonderful place to work, shop, enjoy and live.", img: ['https://www.myholidays.com/blog/content/images/2021/04/Why-Visit-Msheireb-Downtown-Doha.jpg', 'https://www.iloveqatar.net/public/images/news/_760x500_clip_center-center_none/msheireb-tram-msheireb-downtown-doha.jpg', 'https://www.iloveqatar.net/public/images/news/_760x500_clip_center-center_none/musherib.jpg', 'https://www.myholidays.com/blog/content/images/2020/11/Msheireb-Downtown-Doha.jpg'] }

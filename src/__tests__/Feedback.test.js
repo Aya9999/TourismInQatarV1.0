@@ -1,6 +1,7 @@
 import { handleSubmitFeed, handleGetAll, handleUpdateFeed, handleDelete, handleGetAllTests } from "../pages/FeedbacksFunctions";
 import "babel-polyfill"; 
 import 'regenerator-runtime/runtime'
+
 describe("Submit Testing", () => {
     test("submit",async () => {
         const feeds = await handleGetAll()

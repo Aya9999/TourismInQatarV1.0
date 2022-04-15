@@ -1,17 +1,11 @@
 import { Suspense, lazy } from 'react';
 import { Navigate, useRoutes, useLocation } from 'react-router-dom';
 // layouts
-import MainLayout from '../layouts/main';
 import DashboardLayout from '../layouts/dashboard';
 import LogoOnlyLayout from '../layouts/LogoOnlyLayout';
-// guards
-import GuestGuard from '../guards/GuestGuard';
-import AuthGuard from '../guards/AuthGuard';
-// import RoleBasedGuard from '../guards/RoleBasedGuard';
-// config
-import { PATH_AFTER_LOGIN } from '../config';
 // components
 import LoadingScreen from '../components/LoadingScreen';
+// import Calendar from 'src/pages/Calendar';
 
 // ----------------------------------------------------------------------
 
@@ -28,40 +22,11 @@ const Loadable = (Component) => (props) => {
 
 export default function Router() {
   return useRoutes([
+  
     {
       path: '/',
-      element: <Navigate to="/dashboard/one" replace />,
-    },
-    {
-      path: '/dashboard',
       element: <DashboardLayout />,
-      children: [
-        { element: <Navigate to="/dashboard/one" replace />, index: true },
-        { path: 'one', element: <HomePage /> },
-        { path: 'two', element: <Calendar /> },
-        { path: 'three', element: <PageThree /> },
-        {
-          path: 'user',
-          children: [
-            { element: <Navigate to="/dashboard/user/four" replace />, index: true },
-            { path: 'four', element: <PageFour /> },
-            { path: 'five', element: <PageFive /> },
-            { path: 'six', element: <PageSix /> },
-          ],
-        },
-      ],
-    },
-    {
-      path: '',
-      element: <LogoOnlyLayout />,
-      children: [
-        { path: '404', element: <NotFound /> },
-        { path: '', element: <Navigate to="/404" replace /> },
-      ],
-    },
-    {
-      path: '/',
-      element: <MainLayout />,
+
       children: [
         { element: <HomePage />, index: true },
         { path: 'details/pearl', element: <PearlPage /> },
@@ -70,6 +35,10 @@ export default function Router() {
         { path: 'details/lusail', element: <LusailPage /> },
         { path: 'details/katara', element: <KataraPage /> },
         { path: 'details/corniche', element: <CornichePage /> },
+        { path: 'feedback', element: <Feedback /> },
+        { path: 'Calendar', element: <Calendar /> },
+
+
       ],
     },
 
@@ -79,8 +48,8 @@ export default function Router() {
 
 
 const HomePage = Loadable(lazy(() => import('../pages/HomePage')));
-const Calendar = Loadable(lazy(() => import('../pages/Calendar')));
-const PageThree = Loadable(lazy(() => import('../pages/Feedback')));
+const Calendar = Loadable(lazy(() => import('../pages/Calendar1')));
+const Feedback = Loadable(lazy(() => import('../pages/Feedback')));
 const PageFour = Loadable(lazy(() => import('../pages/PageFour')));
 const PageFive = Loadable(lazy(() => import('../pages/PageFive')));
 const PageSix = Loadable(lazy(() => import('../pages/PageSix')));

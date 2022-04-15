@@ -36,10 +36,7 @@ import db from '../db'
 
 import { handleSubmitEvent } from './CalendarFunctions';
 // redux
-// import { useDispatch, useSelector } from '../redux/store';
-import { getEvents, openModal, closeModal, updateEvent, selectEvent, selectRange } from '../redux/slices/calendar';
-// routes
-// import { PATH_DASHBOARD } from '../routes/paths';
+
 // hooks
 import useSettings from '../hooks/useSettings';
 import useResponsive from '../hooks/useResponsive';
@@ -56,20 +53,10 @@ import { CalendarForm, CalendarStyle, CalendarToolbar } from '../sections/@dashb
 
 const selectedEventSelector = (state) => {
   const { events, selectedEventId } = state.calendar;
-  // if (selectedEventId) {
-  //   return events.find((_event) => _event.id === selectedEventId);
-  // }
   return null;
 };
-const COLOR_OPTIONS = [
-  '#00AB55', // theme.palette.primary.main,
-  '#1890FF', // theme.palette.info.main,
-  '#54D62C', // theme.palette.success.main,
-  '#FFC107', // theme.palette.warning.main,
-  '#FF4842', // theme.palette.error.main
-  '#04297A', // theme.palette.info.darker
-  '#7A0C2E', // theme.palette.error.darker
-];
+
+
 export default function Calendar() {
   const { themeStretch } = useSettings();
 
@@ -231,10 +218,7 @@ const handleCancel=()=>{
               headerToolbar={false}
               allDayMaintainDuration
               eventResizableFromStart
-              // select={handleSelectRange}
-              // eventDrop={handleDropEvent}
-              // eventClick={(event)=>handleSelectEvent(event)}
-              // eventResize={handleResizeEvent}
+
               height={isDesktop ? 720 : 'auto'}
               plugins={[listPlugin, dayGridPlugin, timelinePlugin, timeGridPlugin, interactionPlugin]}
             />

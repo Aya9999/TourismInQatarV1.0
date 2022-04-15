@@ -6,7 +6,7 @@ import { alpha, styled } from '@mui/material/styles';
 import { Box, Tab, Card, CardContent, Grid, Divider, Container, Typography, Button } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 // redux
-import { useDispatch, useSelector } from '../../redux/store';
+import {  useSelector } from '../../redux/store';
 import { getProduct, addCart, onGotoStep } from '../../redux/slices/product';
 // routes
 import { PATH_DASHBOARD } from '../../routes/paths';
@@ -63,7 +63,6 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
 
 export default function PearlDetails() {
   const { themeStretch } = useSettings();
-  // const dispatch = useDispatch();
   const [value, setValue] = useState('1');
   const { name = '' } = useParams();
   const place = { id: 0, placeName: "The Pearl", desc: "The Pearl-Qatar is a destination of choice offering its residents and visitors an integrated leisure experience. On this fascinating Island, luxury living blends with lively shopping and entertainment, and scenic backdrops are complemented by a thriving community lifestyle, making The Pearl-Qatar a true living wonder…", img: ['https://thepearlqatar.com/-/media/Thepearlqatar/ExploreTheIsland2019/QQ-2.jpg', 'https://www.myholidays.com/blog/content/images/2020/11/The-Pearl-Qatar-1.jpg', 'https://mycoreo.com/wp-content/uploads/2014/05/the-pearl-qatar-650.jpg', 'https://www.regencyholidays.com/blog/content/images/2021/06/Interesting-Things-To-Know-About-Pearl-Qatar.jpg'] }

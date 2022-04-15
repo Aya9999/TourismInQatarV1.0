@@ -1,5 +1,4 @@
 import {changeCardColor, createPlaces, handleSearch, shuffle} from '../pages/homePageFunctions'
-import React from 'react';
 
 describe("Card Color Testing", () => {
     test("color", () => {
