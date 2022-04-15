@@ -145,6 +145,12 @@ export default function HomePage({ index }) {
     }
     window.scrollTo({top: 0, behavior: 'smooth'});
   }
+
+  function testViewMap () {
+    setViewMap(false)
+    return viewMap == false
+  }
+
   return (
     <Page title="Home Page">
       <Container maxWidth={themeStretch ? false : 'lg'}>
