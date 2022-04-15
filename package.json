@@ -6,7 +6,9 @@
   "private": true,
   "scripts": {
     "start": "react-scripts start",
+    "build-local": "react-scripts build",
     "build": "CI=false && react-scripts build",
+    "serve": "serve -s build",
     "eject": "react-scripts eject",
     "test": "jest",
     "lint": "eslint --ext .js,.jsx ./src",
@@ -124,6 +126,7 @@
     "redux-persist": "^6.0.0",
     "regenerator-runtime": "^0.13.9",
     "rehype-raw": "^6.1.1",
+    "serve": "^13.0.2",
     "simplebar": "^5.3.6",
     "simplebar-react": "^2.3.6",
     "slick-carousel": "^1.8.1",

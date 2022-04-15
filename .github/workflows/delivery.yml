@@ -26,12 +26,11 @@ jobs:
     - name: Install dependencies
       run: npm install
 
-
     - name: Build
-      run: npm run build  
+      run: npm run build
+
+    - name: Serve Build
+      run: npm run serve
 
     - name: Run the tests and generate coverage report
-      run: npm test -- --coverage
-
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
+      run: npm test
