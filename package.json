@@ -7,7 +7,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build-local": "react-scripts build",
-    "build": "CI=false && react-scripts build",
+    "build": "CI=false && react-scripts build --base-href /TourismInQatarV1.0/",
     "serve": "serve -s build &",
     "eject": "react-scripts eject",
     "test": "jest",
