@@ -35,10 +35,10 @@ jobs:
     - name: Serve build
       run: npm run serve
 
-    - name: Run the tests and generate coverage report
-      run: npm test -- --coverage
+    - name: Run the tests
+      run: npm test
 
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
+    - name: Linting
+      run: npm run lint
 
 

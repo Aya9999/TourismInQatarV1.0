@@ -1,3 +1,5 @@
+/* eslint no-restricted-globals:0 */
+
 import PropTypes from 'prop-types';
 import { paramCase } from 'change-case';
 import { Link as RouterLink } from 'react-router-dom';
@@ -62,8 +64,8 @@ export default function PlaceCard({ place }) {
                         )} */}
 
                         {/* <Typography variant="subtitle1">{fCurrency(price)}</Typography> */}
-                    </Stack>
-                </Stack>
+                    {/* </Stack>
+                </Stack> */}
             </Stack>
         </Card>
     );
