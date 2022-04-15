@@ -90,7 +90,7 @@ export default function HomePage({ index }) {
 
   function testViewMap () {
     setViewMap(false)
-    return viewMap == false
+    return viewMap === false
   }
 
   return (

@@ -10,7 +10,6 @@ import { Box, Link, Card, Avatar, Typography, CardContent, Stack, Grid, Button, 
 import { render } from 'react-dom';
 import { BsPinFill } from "react-icons/bs";
 import 'mapbox-gl/dist/mapbox-gl.css';
-import bbox from '@turf/bbox';
 import places from './places.json'
 import Image from '../components/Image';
 
