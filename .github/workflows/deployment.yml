@@ -31,8 +31,6 @@ jobs:
 
     - name: Deploy
       run: npm run deploy
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
     # - name: Deploy 🚀
     #   uses: JamesIves/github-pages-deploy-action@v4.2.5
     #   with:
