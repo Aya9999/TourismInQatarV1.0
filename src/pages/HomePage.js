@@ -95,11 +95,11 @@ export default function HomePage({ index }) {
         <Button id="searchNow"onClick={handleSearchLocally}>search</Button>
         <Button id="changeColor" onClick={changeCardColorLocally}>change color</Button>
         <Button id="shuffle" onClick={shuffleLocally}>shuffle cards</Button>
-        <Button onClick={() => setViewMap(!viewMap)}>View Map</Button>
+        <Button id="viewMap" onClick={() => setViewMap(!viewMap)}>View Map</Button>
 
 
         <Grid container spacing={3}>
-          <Grid key="map" item hidden={!viewMap} xs={12}>
+          <Grid id="qmap" item hidden={!viewMap} xs={12}>
             <QMap setPopupInfo={setPopupInfo} popupInfo={popupInfo} />
           </Grid>
           {places.map((place, index) => (

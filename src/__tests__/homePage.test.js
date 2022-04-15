@@ -27,4 +27,3 @@ describe("Create places search", () => {
         expect(places.length).toEqual(6)
     })
 }
-)
