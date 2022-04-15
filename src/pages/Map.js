@@ -1,7 +1,9 @@
 /* eslint react/style-prop-object: 0 */
+/* eslint import/no-webpack-loader-syntax: 0 */
 
 // map
-import Map, {
+
+import  ReactMapGl, { Map,
     Layer, Feature, Marker, Popup, NavigationControl, ScaleControl, GeolocateControl,
     FullscreenControl, MapRef, MapLayerMouseEvent, MapboxStyle
 } from 'react-map-gl'
@@ -11,6 +13,7 @@ import { render } from 'react-dom';
 import { BsPinFill } from "react-icons/bs";
 import 'mapbox-gl/dist/mapbox-gl.css';
 import bbox from '@turf/bbox';
+import MapBoxWorker from 'worker-loader!mapbox-gl/dist/mapbox-gl-csp-worker'
 import places from './places.json'
 import Image from '../components/Image';
 
@@ -20,6 +23,8 @@ import Image from '../components/Image';
 //     accessToken:
 //         'pk.eyJ1IjoiY2FybG9zYW11bCIsImEiOiJjbDFuYTc2NDMwYWRlM29wZzRqbTVqaDVrIn0.7-I9jUfnZ2TagYEF491H8g'
 // });
+
+ReactMapGl.workerClass = MapBoxWorker
 
 export default function QMap({ setPopupInfo, popupInfo }) {
     const mapRef = useRef(null);

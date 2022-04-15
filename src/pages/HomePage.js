@@ -19,7 +19,7 @@ import { fDate } from '../utils/formatTime';
 import QMap from './Map'
 
 // routes
-import {changeCardColor, shuffle, createPlaces, handleSearch} from './homePageFunctions'
+import { changeCardColor, shuffle, createPlaces, handleSearch } from './homePageFunctions'
 
 // ----------------------------------------------------------------------
 
@@ -50,13 +50,13 @@ export default function HomePage({ index }) {
   }, []);
 
   const createPlacesLocally = () => {
-  
+
     setPlaces(createPlaces());
 
   };
 
   const changeCardColorLocally = () => {
-    const cardColors =  changeCardColor(backgroundColor[0])
+    const cardColors = changeCardColor(backgroundColor[0])
     setBackgroundColor([cardColors[0], cardColors[1]])
     setTextColor([cardColors[1], cardColors[0]])
 
@@ -65,15 +65,15 @@ export default function HomePage({ index }) {
     document.getElementById("changeColor").click()
   }
 
-  const shuffleLocally=()=> {
+  const shuffleLocally = () => {
 
     setPlaces(shuffle())
   }
-  const handleSearchLocally=()=>{
-    if(search.length>0){
+  const handleSearchLocally = () => {
+    if (search.length > 0) {
 
-    
-    setPlaces(handleSearch(search))
+
+      setPlaces(handleSearch(search))
     }
     else {
       createPlaces()
@@ -82,86 +82,96 @@ export default function HomePage({ index }) {
 
   const showOnMap = (place) => {
     setPopupInfo(place)
-    if(!viewMap){
+    if (!viewMap) {
       setViewMap(true)
     }
-    window.scrollTo({top: 0, behavior: 'smooth'});
+    // window.scrollTo(0, document.body.scrollHeight, behavior: 'smooth');
+    const mapelem = document.querySelector("#qmap");
+    mapelem.scrollIntoView({ behavior: "smooth" })
   }
-  return (
-    <Page title="Home Page">
 
-      <Container maxWidth='lg'> 
+    return (
+      <Page title="Home Page">
 
-        <Grid container spacing={3}>
-        <Grid container >
+        <Container maxWidth='lg'>
 
-<TextField lable="Search" value={search}  onChange={val=>setSearch(val.target.value)}/>
+          <Grid container spacing={3}>
+            <Grid container >
 
-<Button id="searchNow"onClick={handleSearchLocally}>search</Button>
-<Button id="changeColor" onClick={changeCardColorLocally}>change color</Button>
-<Button id="shuffle" onClick={shuffleLocally}>shuffle cards</Button>
-<Button onClick={() => setViewMap(!viewMap)}>View Map</Button>
+              <TextField lable="Search" value={search} onChange={val => setSearch(val.target.value)} />
 
-</Grid>
-          {places.map((place, index) => (
-            <Grid key={place.id} item xs={12} sm={6} md={4}>
-              <Card
-                id={`card${place.id}`}
-                sx={{
+              <Button id="searchNow" onClick={handleSearchLocally}>search</Button>
+              <Button id="changeColor" onClick={changeCardColorLocally}>change color</Button>
+              <Button id="shuffle" onClick={shuffleLocally}>shuffle cards</Button>
+              <Button onClick={() => setViewMap(!viewMap)}>View Map</Button>
 
-                  backgroundColor: `${backgroundColor[index % 2]}`,
-                }}
-              >
-                <Box sx={{ position: 'relative' }}>
-                  <Image alt="cover" src={place.img} ratio="4/3" />
-                </Box>
-                <CardContent
+            </Grid>
+            {places.map((place, index) => (
+              <Grid key={place.id} item xs={12} sm={6} md={4}>
+                <Card
+                  id={`card${place.id}`}
                   sx={{
-                    pt: 4.5,
-                    width: 1,
-                    ...((latestPostLarge || latestPostSmall) && {
-                      pt: 0,
-                      zIndex: 9,
-                      bottom: 0,
-                      position: 'absolute',
-                      color: 'common.white',
-                    }),
+
+                    backgroundColor: `${backgroundColor[index % 2]}`,
                   }}
                 >
-                  <Typography
-                    gutterBottom
-                    variant="caption"
-                    component="div"
+                  <Box sx={{ position: 'relative' }}>
+                    <Image alt="cover" src={place.img} ratio="4/3" />
+                  </Box>
+                  <CardContent
                     sx={{
-
-                      color: `${textColor[index % 2]}`,
-                      fontSize: '18px',
+                      pt: 4.5,
+                      width: 1,
                       ...((latestPostLarge || latestPostSmall) && {
-                        opacity: 0.64,
+                        pt: 0,
+                        zIndex: 9,
+                        bottom: 0,
+                        position: 'absolute',
                         color: 'common.white',
                       }),
                     }}
                   >
-                    {place.placeName}
-                  </Typography>
+                    <Typography
+                      gutterBottom
+                      variant="caption"
+                      component="div"
+                      sx={{
 
-                  <Button sx={{
-                    color: `${textColor[index % 2]}`,
-                    ...((latestPostLarge || latestPostSmall) && {
-                      opacity: 0.64,
-                      color: 'common.white',
-                    }),
-                  }} onClick={() => showOnMap(place)}>Show on Map</Button>
-                </CardContent>
-              </Card>
+                        color: `${textColor[index % 2]}`,
+                        fontSize: '18px',
+                        ...((latestPostLarge || latestPostSmall) && {
+                          opacity: 0.64,
+                          color: 'common.white',
+                        }),
+                      }}
+                    >
+                      {place.placeName}
+                    </Typography>
+
+                    <Button sx={{
+                      color: `${textColor[index % 2]}`,
+                      ...((latestPostLarge || latestPostSmall) && {
+                        opacity: 0.64,
+                        color: 'common.white',
+                      }),
+                    }} onClick={() => showOnMap(place)}>Show on Map</Button>
+                    <Button sx={{
+                      color: `${textColor[index % 2]}`,
+                      ...((latestPostLarge || latestPostSmall) && {
+                        opacity: 0.64,
+                        color: 'common.white',
+                      }),
+                    }} to={`/details/${place.linkName}`} component={RouterLink}>Details</Button>
+                  </CardContent>
+                </Card>
+              </Grid>
+            ))}
+            <Grid id="qmap" item hidden={!viewMap} xs={12}>
+              <QMap setPopupInfo={setPopupInfo} popupInfo={popupInfo} />
             </Grid>
-          ))}
-             <Grid key="map" item hidden={!viewMap} xs={12}>
-            <QMap setPopupInfo={setPopupInfo} popupInfo={popupInfo} />
-          </Grid> 
-        </Grid>
-            
-      </Container>
-    </Page>
-  );
-}
+          </Grid>
+
+        </Container>
+      </Page>
+    );
+  }
