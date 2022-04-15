@@ -21,8 +21,7 @@ const Loadable = (Component) => (props) => {
 };
 
 export default function Router() {
-  
-  if(pathname.includes('/TourismInQatar'))
+
   return useRoutes([
     
     {
