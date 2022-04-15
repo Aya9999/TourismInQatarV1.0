@@ -1,40 +1,31 @@
 /* eslint react/style-prop-object: 0 */
+/* eslint react/prop-types: 0 */
 
 // map
 import Map, {
-    Layer, Feature, Marker, Popup, NavigationControl, ScaleControl, GeolocateControl,
-    FullscreenControl, MapRef, MapLayerMouseEvent, MapboxStyle
+    Marker, Popup, NavigationControl, ScaleControl, GeolocateControl,
+    FullscreenControl
 } from 'react-map-gl'
-import { useEffect, useCallback, useState, useMemo, useRef } from 'react';
-import { Box, Link, Card, Avatar, Typography, CardContent, Stack, Grid, Button, Container, TextField } from '@mui/material';
+import { useEffect, useMemo, useRef } from 'react';
+import { Box, Card, Typography, CardContent, Button } from '@mui/material';
 import { render } from 'react-dom';
 import { BsPinFill } from "react-icons/bs";
 import 'mapbox-gl/dist/mapbox-gl.css';
-import bbox from '@turf/bbox';
 import places from './places.json'
 import Image from '../components/Image';
-
-
-
-// const Map = ReactMapGl({
-//     accessToken:
-//         'pk.eyJ1IjoiY2FybG9zYW11bCIsImEiOiJjbDFuYTc2NDMwYWRlM29wZzRqbTVqaDVrIn0.7-I9jUfnZ2TagYEF491H8g'
-// });
 
 export default function QMap({ setPopupInfo, popupInfo }) {
     const mapRef = useRef(null);
 
-    const [position, setPosition] = useState(null)
-    // const [showPopup, setShowPopup] = useState(false)
     useEffect(() => popupInfo ? mapRef.current.flyTo({ center: [popupInfo.coordinates[0], popupInfo.coordinates[1]], duration: 1000 }) : '', [popupInfo])
 
     const pins = useMemo(
         () =>
-            places.map((place, index) => (
+            places.map((place) => (
                 <Marker key={place.placeName} longitude={place.coordinates[0]} latitude={place.coordinates[1]} anchor="bottom" >
                     <BsPinFill color="red" size={23} onClick={() => setPopupInfo(place)} />
                 </Marker>
-            )), [])
+            )), [setPopupInfo])
 
     return (<Map
         ref={(ref) => { mapRef.current = ref; }}
