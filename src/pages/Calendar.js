@@ -33,7 +33,7 @@ import DateTimePicker from '@mui/lab/DateTimePicker';
 import DatePicker from '@mui/lab/DatePicker';
 import MobileDatePicker from '@mui/lab/MobileDatePicker';
 import db from '../db'
-
+import { handleSubmitEvent } from './CalendarFunctions';
 // redux
 // import { useDispatch, useSelector } from '../redux/store';
 import { getEvents, openModal, closeModal, updateEvent, selectEvent, selectRange } from '../redux/slices/calendar';
@@ -158,9 +158,7 @@ export default function Calendar() {
   };
 
   const handleSubmit = () => {
-    const eventDate=reformatDate(EventDate)   
-    db.Events.addEvent({ title: theTitle, 
-      date: eventDate})
+    handleSubmitEvent( {theTitle,eventdate:EventDate})
 
       handleCancel()
   
@@ -168,17 +166,7 @@ export default function Calendar() {
   const handleCloseModal = () => {
     setIsOpenModal(false);
   };
-  const reformatDate=(theDate)=>{
-    const date1= theDate.toLocaleDateString().split('/')
-    if(date1[1]<10){
-      date1[1]=`0${date1[1]}`
-    }
-    if(date1[0]<10){
-      date1[0]=`0${date1[0]}`
-    }
-    return (String(`${date1[2]}-${date1[0]}-${date1[1]}`))
-   
-  }
+  
 const handleCancel=()=>{
   setTheTitle("")
   setEventDate(new Date)

@@ -7,7 +7,7 @@
   "scripts": {
     "test": "jest",
     "start": "react-scripts start",
-    "build": "react-scripts build",
+    "build": "CI=false && react-scripts build",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx ./src",
     "lint:fix": "eslint --fix --ext .js,.jsx ./src",
@@ -38,6 +38,7 @@
     ]
   },
   "dependencies": {
+    "@babel/runtime": "^7.17.9",
     "@date-io/date-fns": "^2.13.1",
     "@date-io/dayjs": "^2.13.1",
     "@date-io/luxon": "^2.13.1",
@@ -60,6 +61,7 @@
     "@reduxjs/toolkit": "^1.8.1",
     "axios": "^0.26.1",
     "babel-jest": "^27.5.1",
+    "babel-polyfill": "^6.26.0",
     "change-case": "^4.1.2",
     "date-fns": "^2.28.0",
     "firebase": "^9.6.10",
@@ -67,9 +69,11 @@
     "history": "^5.3.0",
     "jest": "^27.5.1",
     "mapbox-gl": "^2.7.1",
+    "jest": "^27.5.1",
     "notistack": "^2.0.3",
     "nprogress": "^0.2.0",
     "prop-types": "^15.8.1",
+    "puppeteer": "^13.5.2",
     "react": "^17.0.2",
     "react-date-picker": "^8.4.0",
     "react-datepicker": "^4.7.0",
@@ -88,6 +92,7 @@
     "react-test-renderer": "^18.0.0",
     "redux": "^4.1.2",
     "redux-persist": "^6.0.0",
+    "regenerator-runtime": "^0.13.9",
     "simplebar": "^5.3.6",
     "simplebar-react": "^2.3.6",
     "stylis": "^4.0.13",
@@ -98,6 +103,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/eslint-parser": "^7.17.0",
+    "@babel/plugin-transform-runtime": "^7.17.0",
     "@typescript-eslint/eslint-plugin": "^5.12.1",
     "@typescript-eslint/parser": "^5.12.1",
     "babel-eslint": "^10.1.0",

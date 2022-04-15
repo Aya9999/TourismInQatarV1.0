@@ -1,7 +1,8 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore } from 'firebase/firestore';
-import { collection, onSnapshot, query, doc, addDoc , updateDoc, deleteDoc} from 'firebase/firestore';
+import { collection, onSnapshot, query, doc, addDoc , updateDoc, deleteDoc, getDocs, where} from 'firebase/firestore';
 import { comment } from 'stylis';
+import 'regenerator-runtime/runtime'
 
 const firebaseConfig1 = {
   apiKey: 'AIzaSyDI8fCDmQfTwJsmq9FdnvKs12AIjtm8Gz4',
@@ -32,6 +33,26 @@ class Feedbacks {
       set(feedbacks);
     });
   };
+  getFeedbacks=async()=>{
+    const q = query(collection(db, "feedbacks"))
+    let allFeeds=[]
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      allFeeds.push(this.reformat(doc));
+    })
+    return allFeeds
+  
+  }
+  getTestingComments=async(name)=>{
+    const q = query(collection(db, "feedbacks"), where("name", "==", name))
+    let TestingFeeds=[]
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach((doc) => {
+      TestingFeeds.push(this.reformat(doc));
+    })
+    return TestingFeeds
+  
+  }
 
   addFeedback=async(docData)=>
     await addDoc(collection(db, "feedbacks"), docData);
@@ -74,6 +95,16 @@ class Events {
     }
     deleteEvent=async(id)=>
     await deleteDoc(doc(db, "events", id));
+    getAllEvents=async()=>{
+      const q = query(collection(db, "events"))
+      let allEvents=[]
+      const querySnapshot = await getDocs(q);
+      querySnapshot.forEach((doc) => {
+        allEvents.push(this.reformat(doc));
+      })
+      return allEvents
+    
+    }
   
   }
 export default {

@@ -22,7 +22,7 @@ import useSettings from '../hooks/useSettings';
 // components
 import Page from '../components/Page';
 import db from '../db'
-
+import { handleSubmitFeed, handleUpdateFeed , handleDelete} from './FeedbacksFunctions';
 // ----------------------------------------------------------------------
 
 export default function Feedback() {
@@ -36,13 +36,14 @@ export default function Feedback() {
   useEffect(() => db.Feedbacks.listenToFeedbacks(setFeedbacks), [])
 
   const handleSubmit=()=>{
-     db.Feedbacks.addFeedback({name, comment})
+    handleSubmitFeed({name, comment})
     handleCancel()
   }
   const handleCancel=()=>{
     setId("")
     setName("")
     setComment("")
+    setEdit(false)
  }
  const handleEdit=(item)=>{
    setId(item.id)
@@ -51,13 +52,12 @@ export default function Feedback() {
 
  }
  const handleUpdate=()=>{
-  db.Feedbacks.updateFeedback({id, name, comment})
+ handleUpdateFeed({id, name, comment})
   handleCancel()
 
  }
-const handleDelete=(id)=>{
-
-  db.Feedbacks.deleteFeedback(id)
+const handleDeleteLocally=(id)=>{
+handleDelete(id)
 
 }
   return (
@@ -69,16 +69,16 @@ const handleDelete=(id)=>{
         <FormControl>
           <Stack spacing={4} direction="row">
             <TextField label="Name" type="text" value={name} 
-            onChange={(e) => setName(e.target.value)} />
+            onChange={(e) => setName(e.target.value)} id="name" />
             <TextField label="Feedback" type="text" value={comment} 
-            onChange={(e) => setComment(e.target.value)} />
+            onChange={(e) => setComment(e.target.value)} id="comment" />
             <DialogActions>
               <Box sx={{ flexGrow: 1 }} />
 
               <Button variant="outlined" color="inherit" onClick={handleCancel}>
                 Cancel
               </Button>
-{edit?<Button type="submit" variant="contained" onClick={handleSubmit}>
+{!edit?<Button type="submit" variant="contained" onClick={handleSubmit} id="add">
                 Add
               </Button>:<Button type="submit" variant="contained" onClick={handleUpdate}>
                 Update
@@ -107,7 +107,7 @@ const handleDelete=(id)=>{
           <Typography>
             {comment.comment}
           </Typography>
-          <Button variant="outlined" color="inherit"  onClick={()=>handleDelete(comment.id)}>
+          <Button variant="outlined" color="inherit"  onClick={()=>handleDeleteLocally(comment.id)}>
                 Delete
               </Button>
 

@@ -20,6 +20,7 @@ import { fDate } from '../utils/formatTime';
 import QMap from './Map'
 
 // routes
+import {changeCardColor, shuffle, createPlaces, handleSearch} from './homePageFunctions'
 
 // ----------------------------------------------------------------------
 
@@ -28,7 +29,7 @@ HomePage.propTypes = {
 
 };
 export default function HomePage({ index }) {
-  const { themeStretch } = useSettings();
+  // const { themeStretch } = useSettings();
 
   const [places, setPlaces] = useState([]);
   const [search, setSearch] = useState("");
@@ -44,94 +45,35 @@ export default function HomePage({ index }) {
   const [viewMap, setViewMap] = useState(true)
 
   useEffect(() => {
-    createPlaces();
+    createPlacesLocally();
 
   }, []);
 
-  const createPlaces = () => {
-    const places = [
-      {
-        id: 0,
-        placeName: "The Pearl",
-        coordinates: [51.55148, 25.36875],
-        img: "https://thepearlqatar.com/-/media/Thepearlqatar/ExploreTheIsland2019/QQ-2.jpg"
-      },
-      {
-        id: 1,
-        placeName: "Souq Waqif",
-        coordinates: [51.53280, 25.28840],
-        img: "http://cdn.cnn.com/cnnnext/dam/assets/180122165928-souq-waqif--by-dimitris-sideridis.jpg"
-      },
-      {
-        id: 2,
-        placeName: "Musherib",
-        coordinates: [51.52723, 25.28148],
-        img: "https://www.myholidays.com/blog/content/images/2021/04/Why-Visit-Msheireb-Downtown-Doha.jpg"
-      },
-      {
-        id: 3,
-        placeName: "Lusail",
-        coordinates: [51.53004, 25.42068],
-        img: "https://www.timeoutdoha.com/cloud/timeoutdoha/2021/08/17/Lusail-in-Qatar1.jpg"
-      },
-      {
-        id: 4,
-        placeName: "Katara",
-        coordinates: [51.52556, 25.35926],
-        img: "https://www.accessibleqatar.com/wp-content/uploads/2016/05/katara_photo_big_2.jpg"
-      },
-      {
-        id: 5,
-        placeName: "Cournish",
-        coordinates: [51.51933, 25.30795],
-        img: "https://lp-cms-production.imgix.net/2019-06/f868443201b1370e5faa91e332e47ef8-al-corniche.jpg"
-      }
-    ];
-    setPlaces(places);
-    // changeCardColor()
+  const createPlacesLocally = () => {
+  
+    setPlaces(createPlaces());
 
   };
 
-  const changeCardColor = () => {
-    for (let i = 0; i < 6; i += 1) {
+  const changeCardColorLocally = () => {
+    const cardColors =  changeCardColor(backgroundColor[0])
+    setBackgroundColor([cardColors[0], cardColors[1]])
+    setTextColor([cardColors[1], cardColors[0]])
 
-      if (backgroundColor[0] === "#EBD168") {
-        setBackgroundColor(["#A81818", '#EBD168'])
-        setTextColor(["#EBD168", "#A81818"])
-      }
-      else {
-        setBackgroundColor(["#EBD168", "#A81818"])
-        setTextColor(["#A81818", '#EBD168'])
-
-      }
-    }
-    // setInterval(clickButton, 10000)
   };
   const clickButton = () => {
     document.getElementById("changeColor").click()
   }
-  const shuffle = () => {
-    const places1 = places
-    const newArrengement = []
-    let currentIndex = places.length
-    let randomIndex;
 
+  const shuffleLocally=()=> {
 
-    while (currentIndex !== 0) {
-
-      randomIndex = Math.floor(Math.random() * currentIndex);
-      newArrengement.push(places1[randomIndex])
-      places1.splice(randomIndex, 1)
-      currentIndex -= 1
-    }
-    setPlaces(newArrengement)
+    setPlaces(shuffle())
   }
-  const handleSearch = () => {
-    if (search.length > 0) {
+  const handleSearchLocally=()=>{
+    if(search.length>0){
 
-      const searchPlaces = places.filter(place => place.placeName.toLowerCase().includes(search.toLowerCase()))
-
-      setPlaces(searchPlaces)
+    
+    setPlaces(handleSearch(search))
     }
     else {
       createPlaces()
@@ -153,12 +95,14 @@ export default function HomePage({ index }) {
 
   return (
     <Page title="Home Page">
-      <Container maxWidth={themeStretch ? false : 'lg'}>
-        <TextField lable="Search" value={search} onChange={val => setSearch(val.target.value)} />
-        <Button id="searchNow" onClick={handleSearch}>search</Button>
-        <Button id="changeColor" onClick={changeCardColor}>change color</Button>
-        <Button id="shuffle" onClick={shuffle}>shuffle cards</Button>
+
+      <Container maxWidth='lg'> 
+        <TextField lable="Search" value={search} onChange={val=>setSearch(val.target.value)}/>
+        <Button id="searchNow"onClick={handleSearchLocally}>search</Button>
+        <Button id="changeColor" onClick={changeCardColorLocally}>change color</Button>
+        <Button id="shuffle" onClick={shuffleLocally}>shuffle cards</Button>
         <Button onClick={() => setViewMap(!viewMap)}>View Map</Button>
+
 
         <Grid container spacing={3}>
           <Grid key="map" item hidden={!viewMap} xs={12}>
