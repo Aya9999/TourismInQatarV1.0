@@ -21,9 +21,8 @@ const Loadable = (Component) => (props) => {
 };
 
 export default function Router() {
-
   return useRoutes([
-    
+  
     {
       path: '/',
       element: <DashboardLayout />,
@@ -43,7 +42,7 @@ export default function Router() {
       ],
     },
 
-    { path: '*', element: <Navigate to="/notfound" replace /> },
+    { path: '*', element: <Navigate to="/404" replace /> },
   ]);
 }
 
