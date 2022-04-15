@@ -34,11 +34,11 @@ jobs:
 
     - name: Serve build
       run: npm run serve
+    
+    - name: Linting
+      run: npm run lint
 
     - name: Run the tests
       run: npm test
-
-    - name: Linting
-      run: npm run lint
 
 
