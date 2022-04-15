@@ -35,9 +35,11 @@ const shakeElement = (event) => {
     setInterval(() => {
         if (event.srcElement.style.width === "150px") {
             event.srcElement.style.width = "100px"
+            event.srcElement.style.color = "#a81818"
         }
         else {
             event.srcElement.style.width = "150px"
+            event.srcElement.style.color = "#ebd168"
         }
     }, 500)
 }

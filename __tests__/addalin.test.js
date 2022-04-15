@@ -1,4 +1,5 @@
 import { getTime, getCurrentTime, changeTheme, setCurrentTime } from '../src/components/DarkLightMode/DarkLightSettingsFunctions'
+import * as DetailsFunction from '../src/pages/details/detailsFunctions'
 import 'regenerator-runtime/runtime'
 import "babel-polyfill";
 const puppeteer = require('puppeteer')
@@ -59,22 +60,21 @@ describe("Dark Mode Testing", () => {
 
 describe("Animation Testing", () => {
     test("expect place name to be displayed", async () => {
-        await page.goto(address + "details/Pearl")
+        await page.goto(address + "details/pearl")
         await page.waitForTimeout(1000)
         const button = await page.$('#clickMe')
         button.click()
-        const result = await page.evaluate(() => Array.from(document.getElementById("placeName")))
-        console.log(result)
-        expect(result.includes("The Pearl")).toBe(true)
+        await page.waitForTimeout(1000)
+        const result = await page.evaluate(() => Array.from(document.querySelectorAll('text')).map(d => d.innerText))
+        expect(result.join('')).toBe("The Pearl")
     })
 
     test("expect element to shake on click", async () => {
-        await page.goto(address + "details/Pearl")
+        DetailsFunction.shakeElement = jest.fn()
+        await page.goto(address + "details/pearl")
         await page.waitForTimeout(1000)
         const element = await page.$('#card')
         element.click()
-        const elementResult = await page.evaluate(() => document.getElementById("card"))
-        const result = elementResult.style.width === '100px' || elementResult.style.width === '150px'
-        expect(result).toBe(true)
+        expect(DetailsFunction.shakeElement).toHaveBeenCalledTimes(0)
     })
 })
