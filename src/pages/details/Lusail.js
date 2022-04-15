@@ -6,7 +6,7 @@ import { alpha, styled } from '@mui/material/styles';
 import { Box, Tab, Card, CardContent, Grid, Divider, Container, Typography, Button } from '@mui/material';
 import { TabContext, TabList, TabPanel } from '@mui/lab';
 // redux
-import { useDispatch, useSelector } from '../../redux/store';
+import { useSelector } from '../../redux/store';
 import { getProduct, addCart, onGotoStep } from '../../redux/slices/product';
 // routes
 import { PATH_DASHBOARD } from '../../routes/paths';
@@ -63,7 +63,6 @@ const IconWrapperStyle = styled('div')(({ theme }) => ({
 
 export default function PearlDetails() {
   const { themeStretch } = useSettings();
-  const dispatch = useDispatch();
   const [value, setValue] = useState('1');
   const { name = '' } = useParams();
   const place = { id: 3, placeName: "Lusail", desc: "Lusail is a planned city in Qatar, located on the coast, in the southern part of the municipality of Al Daayen. Lusail is located about 23 kilometres (14 mi) north of the city centre of Doha, just north of the West Bay Lagoon, on over 38 square kilometres (15 sq mi) and will eventually have the infrastructure to accommodate 450,000 people. Of these 450,000 people, it is estimated that 250,000 or fewer will be residents, 190,000 will be office workers and 60,000 will be retail workers.It is planned to have marinas, residential areas, island resorts, commercial districts, luxury shopping and leisure facilities, and a golf course community, man made islands and several entertainment districts. Construction is still ongoing. Development is being carried out by the state-controlled developer Qatari Diar along with Parsons Corporation and Dorsch-Gruppe.It is one of the proposed venues for the Qatar 2022 World Cup is the Lusail Iconic Stadium. It is also the site of the Formula One race track and the First Doha Grand Prix was held here in 2021. ", img: ['https://www.timeoutdoha.com/cloud/timeoutdoha/2022/02/17/Lusail-Marina-Promenade.jpg', 'https://www.hospitalitynet.org/picture/xxl_153123921.jpg?t=1613469924', 'https://www.visitqatar.qa/content/dam/things-to-do/popular-attractions-/lusail/_DSC0903.jpg/_jcr_content/renditions/medium-1280px.jpeg', 'https://www.timeoutdoha.com/cloud/timeoutdoha/2021/08/17/Lusail-in-Qatar1.jpg'] }
