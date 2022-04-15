@@ -6,7 +6,7 @@ const typingAnimation = (id, place) => {
     if (i < place.placeName.length) {
         document.getElementById(id).innerHTML += place.placeName.charAt(i);
         i += 1
-        setTimeout(typingAnimation(id, place), 50);
+        setTimeout(() => typingAnimation(id, place), 50);
     }
     else if (i === place.placeName.length) {
         typingAnimation2(id, place)
@@ -26,7 +26,7 @@ const typingAnimation2 = (id, place) => {
     setInterval(() => {
         for (let d = 0; d < place.placeName.length; d += 1) {
             const letter = document.getElementById(`text${d}`)
-            delay(10000).then(letter.style.color = `${Math.floor(Math.random() * 16777215).toString(16)}`);
+            delay(10000).then(letter.style.color = `#${Math.floor(Math.random() * 16777215).toString(16)}`);
         }
     }, 100)
 }
