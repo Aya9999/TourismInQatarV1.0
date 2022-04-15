@@ -27,7 +27,7 @@ export const PATH_PAGE = {
   about: '/about-us',
   contact: '/contact-us',
   faqs: '/faqs',
-  page404: '/notfound',
+  page404: '/404',
   page500: '/500',
   components: '/components',
 };

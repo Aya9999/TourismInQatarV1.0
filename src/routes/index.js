@@ -37,12 +37,26 @@ export default function Router() {
         { path: 'details/corniche', element: <CornichePage /> },
         { path: 'feedback', element: <Feedback /> },
         { path: 'Calendar', element: <Calendar /> },
+      ],
+    },
+    {
+      path: '/TourismInQatarV1.0',
+      element: <DashboardLayout />,
 
-
+      children: [
+        { element: <HomePage />, index: true },
+        { path: 'details/pearl', element: <PearlPage /> },
+        { path: 'details/souq', element: <SouqPage /> },
+        { path: 'details/musherib', element: <MusheribPage /> },
+        { path: 'details/lusail', element: <LusailPage /> },
+        { path: 'details/katara', element: <KataraPage /> },
+        { path: 'details/corniche', element: <CornichePage /> },
+        { path: 'feedback', element: <Feedback /> },
+        { path: 'Calendar', element: <Calendar /> },
       ],
     },
 
-    { path: '*', element: <Navigate to="/notfound" replace /> },
+    { path: '*', element: <Navigate to="/404" replace /> },
   ]);
 }
 
