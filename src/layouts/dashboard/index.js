@@ -50,6 +50,8 @@ export default function DashboardLayout() {
 
   const verticalLayout = themeLayout === 'vertical';
 
+  console.log('public url', process.env.PUBLIC_URL)
+
   if (verticalLayout) {
     return (
       <>
