@@ -52,6 +52,7 @@ export default function Feedback() {
    setId(item.id)
    setName(item.name)
    setComment(item.comment)
+   setEdit(true)
 
  }
  const handleUpdate=()=>{
