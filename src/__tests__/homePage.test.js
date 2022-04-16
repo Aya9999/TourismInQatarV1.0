@@ -1,5 +1,5 @@
 import {changeCardColor, createPlaces, handleSearch, shuffle} from '../pages/homePageFunctions'
-
+// 
 describe("Card Color Testing", () => {
     test("color", () => {
         const changeCardColor1 = changeCardColor("#EBD168")
