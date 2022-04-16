@@ -1,6 +1,5 @@
 {
   "name": "@minimal/minimal-kit-react",
-  "homepage": "./",
   "author": "minimals.cc",
   "version": "3.2.0",
   "description": "Simple React Scripts & Javascript",
@@ -16,6 +15,7 @@
     "lint:fix": "eslint --fix --ext .js,.jsx ./src",
     "clear-all": "rm -rf build node_modules",
     "deploy": "gh-pages -d build",
+    "deploy-firebase": "firebase deploy --only hosting",
     "re-start": "rm -rf build node_modules && yarn install && yarn start",
     "re-build": "rmw -rf build node_modules && yarn install && yarn build"
   },

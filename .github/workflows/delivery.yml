@@ -5,6 +5,9 @@ on:
     branches-ignore:
       - main
 
+env:
+  PUBLIC_URL: 'https://aya9999.github.io/TourismInQatarV1.0/'
+
 jobs:
   build:
 
@@ -34,11 +37,11 @@ jobs:
 
     - name: Serve build
       run: npm run serve
+    
+    - name: Linting
+      run: npm run lint
 
-    - name: Run the tests and generate coverage report
-      run: npm test -- --coverage
-
-    - name: Upload coverage to Codecov
-      uses: codecov/codecov-action@v1
+    - name: Run the tests
+      run: npm test
 
 

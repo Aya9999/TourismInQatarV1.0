@@ -39,7 +39,7 @@ export default function QMap({ setPopupInfo, popupInfo }) {
                 <Marker key={place.placeName} longitude={place.coordinates[0]} latitude={place.coordinates[1]} anchor="bottom" >
                     <BsPinFill color="red" size={23} onClick={() => setPopupInfo(place)} />
                 </Marker>
-            )), [])
+            )), [setPopupInfo])
 
     return (<Map
         ref={(ref) => { mapRef.current = ref; }}
