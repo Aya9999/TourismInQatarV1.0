@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/TourismInQatarV1.0/static/css/main.faf63983.css",
-    "main.js": "/TourismInQatarV1.0/static/js/main.83e0f629.js",
-    "static/js/815.66015e77.chunk.js": "/TourismInQatarV1.0/static/js/815.66015e77.chunk.js",
+    "main.js": "/TourismInQatarV1.0/static/js/main.4bdf539f.js",
+    "static/js/815.fb1228ef.chunk.js": "/TourismInQatarV1.0/static/js/815.fb1228ef.chunk.js",
     "static/js/564.048d2788.chunk.js": "/TourismInQatarV1.0/static/js/564.048d2788.chunk.js",
     "static/js/433.9c92f38d.chunk.js": "/TourismInQatarV1.0/static/js/433.9c92f38d.chunk.js",
     "static/js/633.1fe5c54e.chunk.js": "/TourismInQatarV1.0/static/js/633.1fe5c54e.chunk.js",
@@ -31,8 +31,8 @@
     "static/js/mapbox-gl-csp-worker.ee0da3e4.worker.js": "/TourismInQatarV1.0/static/js/mapbox-gl-csp-worker.ee0da3e4.worker.js",
     "index.html": "/TourismInQatarV1.0/index.html",
     "main.faf63983.css.map": "/TourismInQatarV1.0/static/css/main.faf63983.css.map",
-    "main.83e0f629.js.map": "/TourismInQatarV1.0/static/js/main.83e0f629.js.map",
-    "815.66015e77.chunk.js.map": "/TourismInQatarV1.0/static/js/815.66015e77.chunk.js.map",
+    "main.4bdf539f.js.map": "/TourismInQatarV1.0/static/js/main.4bdf539f.js.map",
+    "815.fb1228ef.chunk.js.map": "/TourismInQatarV1.0/static/js/815.fb1228ef.chunk.js.map",
     "564.048d2788.chunk.js.map": "/TourismInQatarV1.0/static/js/564.048d2788.chunk.js.map",
     "433.9c92f38d.chunk.js.map": "/TourismInQatarV1.0/static/js/433.9c92f38d.chunk.js.map",
     "633.1fe5c54e.chunk.js.map": "/TourismInQatarV1.0/static/js/633.1fe5c54e.chunk.js.map",
@@ -61,6 +61,6 @@
   },
   "entrypoints": [
     "static/css/main.faf63983.css",
-    "static/js/main.83e0f629.js"
+    "static/js/main.4bdf539f.js"
   ]
 }
