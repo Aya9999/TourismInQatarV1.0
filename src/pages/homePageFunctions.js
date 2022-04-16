@@ -62,7 +62,7 @@ const shuffle=()=> {
       {
         id: 5,
         placeName: 'Cournish',
-        linkName: 'cournish',
+        linkName: 'corniche',
         coordinates: [51.51933, 25.30795],
         img: 'https://lp-cms-production.imgix.net/2019-06/f868443201b1370e5faa91e332e47ef8-al-corniche.jpg',
       },
