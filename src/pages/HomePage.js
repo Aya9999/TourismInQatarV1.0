@@ -103,7 +103,7 @@ export default function HomePage({ index }) {
               <Button id="searchNow" onClick={handleSearchLocally}>search</Button>
               <Button id="changeColor" onClick={changeCardColorLocally}>change color</Button>
               <Button id="shuffle" onClick={shuffleLocally}>shuffle cards</Button>
-              <Button onClick={() => setViewMap(!viewMap)}>View Map</Button>
+              <Button onClick={() => setViewMap(!viewMap)}>Map</Button>
 
             </Grid>
             {places.map((place, index) => (
