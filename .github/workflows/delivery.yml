@@ -5,6 +5,9 @@ on:
     branches-ignore:
       - main
 
+env:
+  PUBLIC_URL: 'https://aya9999.github.io/TourismInQatarV1.0/'
+
 jobs:
   build:
 

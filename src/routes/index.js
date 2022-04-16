@@ -39,22 +39,22 @@ export default function Router() {
         { path: 'Calendar', element: <Calendar /> },
       ],
     },
-    {
-      path: '/TourismInQatarV1.0',
-      element: <DashboardLayout />,
+    // {
+    //   path: '/TourismInQatarV1.0',
+    //   element: <DashboardLayout />,
 
-      children: [
-        { element: <HomePage />, index: true },
-        { path: 'details/pearl', element: <PearlPage /> },
-        { path: 'details/souq', element: <SouqPage /> },
-        { path: 'details/musherib', element: <MusheribPage /> },
-        { path: 'details/lusail', element: <LusailPage /> },
-        { path: 'details/katara', element: <KataraPage /> },
-        { path: 'details/corniche', element: <CornichePage /> },
-        { path: 'feedback', element: <Feedback /> },
-        { path: 'Calendar', element: <Calendar /> },
-      ],
-    },
+    //   children: [
+    //     { element: <HomePage />, index: true },
+    //     { path: 'TourismInQatarV1.0/details/pearl', element: <PearlPage /> },
+    //     { path: 'TourismInQatarV1.0/details/souq', element: <SouqPage /> },
+    //     { path: 'TourismInQatarV1.0/details/musherib', element: <MusheribPage /> },
+    //     { path: 'TourismInQatarV1.0/details/lusail', element: <LusailPage /> },
+    //     { path: 'TourismInQatarV1.0/details/katara', element: <KataraPage /> },
+    //     { path: 'TourismInQatarV1.0/details/corniche', element: <CornichePage /> },
+    //     { path: 'TourismInQatarV1.0/feedback', element: <Feedback /> },
+    //     { path: 'TourismInQatarV1.0/Calendar', element: <Calendar /> },
+    //   ],
+    // },
 
     { path: '*', element: <Navigate to="/404" replace /> },
   ]);

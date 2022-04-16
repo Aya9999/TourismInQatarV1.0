@@ -8,6 +8,9 @@ on:
     branches:
       - main
 
+env:
+  PUBLIC_URL: 'https://tourisminqatar-14758.web.app/'
+
 jobs:
   build:
 
