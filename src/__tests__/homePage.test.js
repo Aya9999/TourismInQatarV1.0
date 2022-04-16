@@ -27,10 +27,10 @@ describe("Create places search", () => {
     })
 }
 )
-// describe("add map", () => {
-//     test("map", () => {
-//         const map = 1 + 1
-//         expect(map).toEqual(2)
-//     })
-// }
-// )
+describe("add map", () => {
+    test("map", () => {
+        const map = 1 + 1
+        expect(map).toEqual(5)
+    })
+}
+)
